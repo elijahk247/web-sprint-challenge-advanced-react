@@ -19,10 +19,11 @@ export default class PlantList extends Component {
     axios.get("http://localhost:3333/plants")
       .then(res => {
         console.log(res.data)
-        const plantsData = res.data
+        const plantsInfo = res.data.plantsData
+        console.log(plantsInfo)
 
         this.setState({
-          plants: plantsData
+          plants: plantsInfo
         })
       })
       .catch(err => {
