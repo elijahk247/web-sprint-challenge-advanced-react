@@ -33,7 +33,7 @@ test("form shows success message on submit with form details", () => {
   // act: fill out the information and submit the information; check if the information submitted is in the success field 
   const firstNameInput = screen.getByLabelText(/first name:/i)
   const lastNameInput = screen.getByLabelText(/last name:/i)
-  const addressInput = screen.getByText(/address:/i)
+  const addressInput = screen.getByLabelText(/address:/i)
 
   const cityInput = screen.getByLabelText(/city:/i)
   const stateInput = screen.getByLabelText(/state:/i)
@@ -42,7 +42,7 @@ test("form shows success message on submit with form details", () => {
   // firing event to fill out the form
   fireEvent.change(firstNameInput, { target: { value: 'Eli'}})
   fireEvent.change(lastNameInput, { target: { value: 'Kim'}})
-  //fireEvent.change(addressInput, { target: { value: '123 Example Address'}})
+  fireEvent.change(addressInput, { target: { value: '123 Example Address'}})
 
   fireEvent.change(cityInput, { target: { value: 'Atl'}})
   fireEvent.change(stateInput, { target: { value: 'GA'}})
