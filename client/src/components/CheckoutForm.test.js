@@ -52,7 +52,11 @@ test("form shows success message on submit with form details", () => {
   const checkOut = screen.getByText("Checkout")
   fireEvent.click(checkOut)
 
+  // should mean that the information that we put into the form should be inside of the app
+  expect(firstNameInput).toBeInTheDocument()
+
   // assertion: checking if the success message pops up 
-  const success = screen.getByText(/your new green friends will be shipped to: /i)
-  expect(success).toBeInTheDocument()
+  // if passes, should have all the data that we passed into the form as the div contains all the details
+  const success = screen.getByTestId(/successmessage/i)
+  expect(success).toBeInTheDocument();
 });
